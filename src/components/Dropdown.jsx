@@ -7,13 +7,13 @@ const Dropdown = () => {
     {
       name: "Post-Plant",
       description:
-        "Analytical VALORANT web app created to help players improve and anlyze their gameplay more effectively.",
+        "Analytical VALORANT web app created to help players improve and analyze their gameplay more effectively.",
       linkTitle: "Visit Site",
       link: "https://postplant.app",
     },
     {
       name: "Valbility",
-      description: "VALORANT voice and audio accessibility tool.",
+      description: "VALORANT voice and audio accessibility widget.",
       linkTitle: "View GitHub",
       link: "https://github.com/markzhdan/Valbility",
     },
