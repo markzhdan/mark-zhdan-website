@@ -8,13 +8,13 @@ import resume from "../assets/Mark_Zhdan_Resume.pdf";
 const Content = () => {
   return (
     <main className="Content">
-      <main className="AboutMe">
+      <header className="AboutMe">
         <h1>Mark Zhdan</h1>
         <p>
           I'm a full-stack web developer and a Computer Science student at the
           University of Illinois Chicago. Looking for a summer 2024 internship.
         </p>
-      </main>
+      </header>
 
       <section className="Projects">
         <h2>Projects</h2>

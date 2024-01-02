@@ -18,15 +18,18 @@ const Entry = ({ project }) => {
           <div className="DescriptionContent">
             <p>{project.description}</p>
 
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noreferrer"
-              className="Link"
-            >
-              {project.linkTitle}
-              <HiExternalLink />
-            </a>
+            {project.links.map((link) => (
+              <a
+                href={link.link}
+                target="_blank"
+                rel="noreferrer"
+                className="Link"
+                key={link.link}
+              >
+                {link.linkTitle}
+                <HiExternalLink />
+              </a>
+            ))}
           </div>
         )}
       </div>

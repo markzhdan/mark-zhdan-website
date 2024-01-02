@@ -1,9 +1,11 @@
 .Content {
   display: flex;
   flex-direction: column;
+  height: 500px;
   width: 400px;
-  height: 100%;
-  padding-top: 25%;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid red;
 }
 
 .Content section {
