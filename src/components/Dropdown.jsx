@@ -21,6 +21,17 @@ const Dropdown = () => {
       ],
     },
     {
+      name: "Buff163 API Wrapper",
+      description:
+        "An unofficial Python API wrapper for Buff163, a CS skin marketplace.",
+      links: [
+        {
+          linkTitle: "View GitHub",
+          link: "https://github.com/markzhdan/buff163-unofficial-api",
+        },
+      ],
+    },
+    {
       name: "Minecraft Plugins",
       description:
         "Server plugins used by 150+ players that introduced cosmetics, dimensions, and loot chests.",
