@@ -1,0 +1,31 @@
+.Homepage {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 400px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.Homepage h1 {
+  font-family: "GT-America-Extended-Black";
+  font-size: 2rem;
+}
+
+.Homepage h2 {
+  font-family: "GT-America-Extended-Black";
+  font-size: 1.5rem;
+}
+
+.Homepage p {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+
+  font-size: 1rem;
+}
+
+.Homepage .ProjectsList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

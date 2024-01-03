@@ -1,4 +1,4 @@
-.Entry {
+.Project {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -6,7 +6,7 @@
   height: fit-content;
 }
 
-.Description {
+.Project .Description {
   display: flex;
   flex-direction: column;
 
@@ -16,7 +16,7 @@
   transition: max-height 0.2s ease-out;
 }
 
-.Description .DescriptionContent {
+.Project .Description .DescriptionContent {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -30,18 +30,18 @@
   transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
 }
 
-.Entry.expanded .DescriptionContent {
+.Project.expanded .DescriptionContent {
   opacity: 1;
   visibility: visible;
   transition-delay: 0.2s;
 }
 
-.Description .DescriptionContent p {
+.Project .Description .DescriptionContent p {
   margin: 0px !important;
   padding: 0px !important;
 }
 
-.Description .Link {
+.Project .Description .Link {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -49,7 +49,7 @@
   gap: 4px;
 }
 
-.Entry .Title {
+.Project .Title {
   width: 100%;
   height: 25px;
   cursor: pointer;
@@ -63,10 +63,10 @@
   transition: gap 0.2s ease-out;
 }
 
-.Entry .Title:hover {
+.Project .Title:hover {
   gap: 8px;
 }
 
-.Entry.expanded .Description {
+.Project.expanded .Description {
   max-height: 200px;
 }

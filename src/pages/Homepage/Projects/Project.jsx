@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import "./Project.css";
+
 import { FaCaretDown, FaCaretRight } from "react-icons/fa6";
 import { HiExternalLink } from "react-icons/hi";
-import "./Entry.css";
 
-const Entry = ({ project }) => {
+const Project = ({ project }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className={`Entry ${isExpanded ? "expanded" : ""}`}>
+    <div className={`Project ${isExpanded ? "expanded" : ""}`}>
       <div className="Title" onClick={() => setIsExpanded(!isExpanded)}>
         {isExpanded ? <FaCaretDown /> : <FaCaretRight className="right" />}
         <p style={{ fontStyle: "normal" }}>{project.name}</p>
@@ -37,4 +38,4 @@ const Entry = ({ project }) => {
   );
 };
 
-export default Entry;
+export default Project;
