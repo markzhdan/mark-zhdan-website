@@ -1,64 +1,19 @@
 .Project {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
+  width: 100%;
+  overflow: hidden;
   height: fit-content;
 }
 
-.Project .Description {
-  display: flex;
-  flex-direction: column;
-
-  max-height: 0px;
-  padding-left: 20px;
-
-  transition: max-height 0.2s ease-out;
-}
-
-.Project .Description .DescriptionContent {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 10px;
-  padding-bottom: 15px;
-  padding-top: 2px;
-
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
-}
-
-.Project.expanded .DescriptionContent {
-  opacity: 1;
-  visibility: visible;
-  transition-delay: 0.2s;
-}
-
-.Project .Description .DescriptionContent p {
-  margin: 0px !important;
-  padding: 0px !important;
-}
-
-.Project .Description .Link {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-}
-
 .Project .Title {
+  cursor: pointer;
   width: 100%;
   height: 25px;
-  cursor: pointer;
-  gap: 5px;
 
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  gap: 5px;
 
   transition: gap 0.2s ease-out;
 }
@@ -67,6 +22,31 @@
   gap: 8px;
 }
 
-.Project.expanded .Description {
-  max-height: 200px;
+.Project .Title .TitleIcon {
+  height: 1em;
+  width: 1em;
+}
+
+.Project .Description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding-top: 2px;
+  padding-left: 20px;
+  padding-bottom: 15px;
+}
+
+.Project .Description .ProjectLink {
+  width: fit-content;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.Project .Description p {
+  margin: 0px !important;
+  padding: 0px !important;
 }
