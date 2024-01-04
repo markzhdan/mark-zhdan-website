@@ -1,0 +1,47 @@
+.BackLinkContainer {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.BackLinkContainer .BackLink {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  gap: 4px;
+}
+
+.BackLinkContainer .BackLinkIcon {
+  transition: all 0.2s ease-out;
+}
+
+.BackLinkContainer .BackLink:hover .BackLinkIcon {
+  margin-left: -3px;
+  margin-right: 3px;
+}
+
+.BackLink p {
+  margin: 0;
+  padding: 0;
+}
+
+.BackLinkContainer a {
+  color: black;
+  font-family: "GT-America-Extended-Black";
+  text-decoration: none;
+}
+
+.BackLinkContainer a:link,
+.BackLinkContainer a:visited,
+.BackLinkContainer a:hover,
+.BackLinkContainer a:active,
+.BackLinkContainer a:focus {
+  color: black;
+  font-family: "GT-America-Extended-Black", Times, serif;
+  text-decoration: none;
+}

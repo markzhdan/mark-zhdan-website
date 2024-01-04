@@ -1,0 +1,11 @@
+.Blogs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+
+  height: fit-content;
+  width: 400px;
+  padding-left: 10px;
+  padding-right: 10px;
+}

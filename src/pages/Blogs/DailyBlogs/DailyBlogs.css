@@ -1,0 +1,14 @@
+.DailyBlogs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 400px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.DailyBlogs .BackLinkContainer {
+  margin-left: -200px;
+}

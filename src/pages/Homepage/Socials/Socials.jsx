@@ -12,7 +12,7 @@ const Socials = () => {
 
       <div className="SocialsLinks">
         {socials.map((social) => (
-          <Link name={social.name} link={social.link} />
+          <Link name={social.name} link={social.link} key={social.link} />
         ))}
       </div>
     </section>

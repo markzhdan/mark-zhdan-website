@@ -11,3 +11,17 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+a {
+  color: black;
+  font-family: "GT-America-Extended-Black";
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  color: black;
+  font-family: "GT-America-Extended-Black", Times, serif;
+}

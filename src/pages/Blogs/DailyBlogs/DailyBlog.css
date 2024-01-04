@@ -1,0 +1,29 @@
+.DailyBlog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: fit-content;
+  width: 400px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.DailyBlog .Markdown {
+  width: 100%;
+}
+
+.DailyBlog .Markdown p {
+  font-family: "Times New Roman", Times, serif;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.DailyBlog h2 {
+  margin: 0;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  font-size: 12px;
+}

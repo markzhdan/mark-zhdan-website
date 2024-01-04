@@ -4,19 +4,19 @@ import "./Homepage.css";
 import AboutMe from "./AboutMe/AboutMe";
 import Projects from "./Projects/Projects";
 import Resume from "./Resume/Resume";
-// import BlogsSection from "./BlogsSection/BlogsSection";
+import BlogsSection from "./BlogsSection/BlogsSection";
 import Socials from "./Socials/Socials";
 
 const Homepage = () => {
   return (
-    <main className="Homepage">
+    <main className="Homepage Page">
       <AboutMe />
 
       <Projects />
 
       <Resume />
 
-      {/* <BlogsSection /> */}
+      <BlogsSection />
 
       <Socials />
     </main>
