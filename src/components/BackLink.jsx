@@ -1,16 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./BackLink.css";
 
-import { Link } from "react-router-dom";
 import { IoArrowBackOutline } from "react-icons/io5";
 
-const BackLink = ({ goTo }) => {
+const BackLink = () => {
+  const navigate = useNavigate();
+
+  const goToPreviousPage = () => {
+    navigate(-1);
+  };
+
   return (
-    <div className="BackLinkContainer">
-      <Link to={goTo} className="BackLink">
-        <IoArrowBackOutline className="BackLinkIcon" />
-        <p>Go Back</p>
-      </Link>
+    <div className="BackLinkContainer" onClick={goToPreviousPage}>
+      <IoArrowBackOutline className="BackLinkIcon" />
+      <p>Go Back</p>
     </div>
   );
 };

@@ -15,7 +15,7 @@ const Blogs = () => {
         <PageLink name={blog.title} link={`/blogs/${blog.id}`} key={blog.id} />
       ))}
 
-      <BackLink goTo={"/"} />
+      <BackLink />
     </main>
   );
 };

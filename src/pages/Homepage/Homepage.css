@@ -29,3 +29,9 @@
   flex-direction: column;
   gap: 5px;
 }
+
+.Homepage .FeaturedBlogs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

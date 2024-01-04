@@ -48,7 +48,7 @@ const DailyBlogs = () => {
         />
       </LocalizationProvider>
 
-      <BackLink goTo={"/blogs"} />
+      <BackLink />
     </main>
   );
 };

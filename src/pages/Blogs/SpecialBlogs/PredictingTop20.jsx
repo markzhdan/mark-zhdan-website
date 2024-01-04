@@ -16,7 +16,7 @@ const PredictingTop20 = () => {
 
       <h3>Coming soon...</h3>
 
-      <BackLink goTo={"/blogs"} />
+      <BackLink />
     </main>
   );
 };

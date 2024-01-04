@@ -32,7 +32,7 @@ const DailyBlog = () => {
     <main className="DailyBlog Page">
       <Markdown className="Markdown">{blog}</Markdown>
 
-      <BackLink goTo={"/blogs/daily-blogs"} />
+      <BackLink />
     </main>
   );
 };

@@ -7,7 +7,10 @@ const BlogsSection = () => {
     <section className="BlogsSection">
       <h2>Blogs</h2>
 
-      <PageLink name="See All Blogs" link="/blogs" />
+      <div className="FeaturedBlogs">
+        <PageLink name="Daily Blogs" link="/blogs/daily-blogs" />
+        <PageLink name="All Blogs" link="/blogs" />
+      </div>
     </section>
   );
 };
