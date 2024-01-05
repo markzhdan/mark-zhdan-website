@@ -2,9 +2,7 @@ import React from "react";
 import "./Homepage.css";
 
 import AboutMe from "./AboutMe/AboutMe";
-import Projects from "./Projects/Projects";
-import Resume from "./Resume/Resume";
-import BlogsSection from "./BlogsSection/BlogsSection";
+import Portfolio from "./Portfolio/Portfolio";
 import Socials from "./Socials/Socials";
 
 const Homepage = () => {
@@ -12,11 +10,7 @@ const Homepage = () => {
     <main className="Homepage Page">
       <AboutMe />
 
-      <Projects />
-
-      <Resume />
-
-      <BlogsSection />
+      <Portfolio />
 
       <Socials />
     </main>

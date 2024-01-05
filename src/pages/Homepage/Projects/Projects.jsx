@@ -1,13 +1,13 @@
 import React from "react";
 
-import ProjectsList from "./ProjectsList";
+import PageLink from "../../../components/PageLink";
 
 const Projects = () => {
   return (
     <section className="Projects">
       <h2>Projects</h2>
 
-      <ProjectsList />
+      <PageLink name="All Projects" link="/projects" />
     </section>
   );
 };

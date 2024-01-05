@@ -1,0 +1,9 @@
+.ProjectsPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: fit-content;
+  width: 400px;
+  padding-left: 10px;
+  padding-right: 10px;
+}

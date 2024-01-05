@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import "./Project.css";
 import { useSpring, animated } from "react-spring";
 
-import { FaCaretRight } from "react-icons/fa6";
 import { HiExternalLink } from "react-icons/hi";
 
 const Project = ({ project }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   // opening animation
   const openAnimation = useSpring({
@@ -14,20 +13,14 @@ const Project = ({ project }) => {
     config: { friction: 30 },
   });
 
-  //rotate animation
-  const iconAnimation = useSpring({
-    from: { transform: "rotate(0deg)" },
-    to: { transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)" },
-    config: { duration: 120 },
-  });
-
   return (
     <animated.div className="Project" style={openAnimation}>
       <div className="Title" onClick={() => setIsExpanded(!isExpanded)}>
-        <animated.i className="TitleIcon" style={iconAnimation}>
-          <FaCaretRight style={iconAnimation} />
-        </animated.i>
-        <p style={{ fontStyle: "normal" }}>{project.name}</p>
+        <h1
+          style={{ fontStyle: "normal", fontWeight: "800", marginLeft: "20px" }}
+        >
+          {project.name}
+        </h1>
       </div>
 
       <div className="Description">

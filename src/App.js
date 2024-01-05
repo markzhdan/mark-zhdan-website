@@ -7,6 +7,8 @@ import Blogs from "./pages/Blogs/Blogs";
 import DailyBlogs from "./pages/Blogs/DailyBlogs/DailyBlogs";
 import DailyBlog from "./pages/Blogs/DailyBlogs/DailyBlog";
 
+import ProjectsPage from "./pages/Homepage/Projects/ProjectsPage";
+
 import PredictingTop20 from "./pages/Blogs/SpecialBlogs/PredictingTop20";
 
 function App() {
@@ -40,6 +42,8 @@ function App() {
       >
         <Routes>
           <Route exact path="/" element={<Homepage />} />
+
+          <Route path="/projects" element={<ProjectsPage />} />
 
           <Route path="/blogs" element={<Blogs />} />
           <Route
