@@ -25,6 +25,16 @@
     ]
   },
   {
+    "name": "VLR Rating Prediction",
+    "description": "Using machine learning analysis to predict VLR.gg's player ratings using competitive match data.",
+    "links": [
+      {
+        "linkTitle": "View GitHub",
+        "link": "https://github.com/markzhdan/reverse-eng-vlr-rating"
+      }
+    ]
+  },
+  {
     "name": "Minecraft Plugins",
     "description": "Server plugins used by 150+ players that introduced cosmetics, dimensions, and loot chests.",
     "links": [

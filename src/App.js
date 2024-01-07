@@ -5,11 +5,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage/Homepage";
 import Blogs from "./pages/Blogs/Blogs";
 import DailyBlogs from "./pages/Blogs/DailyBlogs/DailyBlogs";
-import DailyBlog from "./pages/Blogs/DailyBlogs/DailyBlog";
+import Blog from "./pages/Blogs/Blog/Blog";
 
 import ProjectsPage from "./pages/Homepage/Projects/ProjectsPage";
-
-import PredictingTop20 from "./pages/Blogs/SpecialBlogs/PredictingTop20";
 
 function App() {
   const [alignTop, setAlignTop] = useState(false);
@@ -46,12 +44,8 @@ function App() {
           <Route path="/projects" element={<ProjectsPage />} />
 
           <Route path="/blogs" element={<Blogs />} />
-          <Route
-            path="/blogs/hltv-top-20-prediction-2023"
-            element={<PredictingTop20 />}
-          />
           <Route path="/blogs/daily-blogs" element={<DailyBlogs />} />
-          <Route path="/blogs/:blogId" element={<DailyBlog />} />
+          <Route path="/blogs/:blogId" element={<Blog />} />
 
           <Route path="*" element={<Homepage />} />
         </Routes>

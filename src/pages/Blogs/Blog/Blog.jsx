@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "./DailyBlog.css";
+import "./Blog.css";
 
 import raw from "raw.macro";
 import BackLink from "../../../components/BackLink";
@@ -9,18 +9,22 @@ import Markdown from "react-markdown";
 import Prism from "prismjs";
 import "prism-themes/themes/prism-one-light.css";
 
-const DailyBlog = () => {
+const Blog = () => {
   const navigate = useNavigate();
   const { blogId } = useParams();
   const [blog, setBlog] = useState(null);
+  const [isDailyBlog, setIsDailyBlog] = useState(true);
 
   useEffect(() => {
-    try {
-      const content = raw(`../../../data/DailyBlogsMarkdown/${blogId}.md`);
+    let content = raw(`../../../data/DailyBlogsMarkdown/${blogId}.md`);
 
+    if (content) {
+      setBlog(content);
+      return;
+    } else {
+      content = raw(`../../../data/SpecialBlogsMarkdown/${blogId}.md`);
       content ? setBlog(content) : navigate("/blogs", { replace: true });
-    } catch (error) {
-      navigate("/blogs", { replace: true });
+      setIsDailyBlog(false);
     }
   }, [blogId, navigate]);
 
@@ -29,7 +33,7 @@ const DailyBlog = () => {
   }, [blog]);
 
   return (
-    <main className="DailyBlog Page">
+    <main className={`Blog ${isDailyBlog ? "DailyBlog" : "SpecialBlog"}`}>
       <Markdown className="Markdown">{blog}</Markdown>
 
       <BackLink />
@@ -37,4 +41,4 @@ const DailyBlog = () => {
   );
 };
 
-export default DailyBlog;
+export default Blog;
