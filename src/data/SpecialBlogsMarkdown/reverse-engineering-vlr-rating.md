@@ -124,6 +124,13 @@ MAE: 0.015882295992085477
 
 The R2 score doesnt look too bad! We'll that was after testing different metrics, calculations, random stats, and a lot of trial and error...
 
+We get the final predicted formula to be:
+**VLR Rating ≈**
+
+```python
+0.898060946867*KPR + 0.227872913948*APR + -0.433940698092*DPR + 0.002524365390*ADRa + 0.433940698092*SR + 0.312874869548*KAST + 0.17492523147187433
+```
+
 # Testing
 
 The model was tested with statistics from [VALORANT Champions 2023](https://www.vlr.gg/event/stats/1657/valorant-champions-2023) and resulted in a minor standard deviation of error.
