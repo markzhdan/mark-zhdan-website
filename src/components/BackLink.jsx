@@ -8,7 +8,11 @@ const BackLink = () => {
   const navigate = useNavigate();
 
   const goToPreviousPage = () => {
-    navigate(-1);
+    try {
+      navigate(-1);
+    } catch (error) {
+      navigate("/");
+    }
   };
 
   return (
