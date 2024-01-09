@@ -4,7 +4,7 @@ January 8th, 2024 - Written by Mark Zhdan
 
 ## TLDR
 
-```python
+```javascript
 VLR Rating ≈ 0.898*KPR + 0.228*APR + -0.434*DPR + 0.0025*ADRa + 0.434*SR + 0.313*KAST + 0.175
 ```
 
@@ -14,8 +14,8 @@ _Full coefficients below_
 
 VLR.gg introduced a new rating system for player stats around December of 2022. The formula to calculate the rating was not released but they explained the key metrics and components that go into the formula in an [article](https://www.vlr.gg/160667/vlr-gg-player-rating-explained). According to the post, the system takings into account kills, death, damage, assists, and surviving which goes into a linear formula similar to this:
 
-```python
-KillContribution + DeathContribution + APR + ADRa + SurvivalRating
+```javascript
+KillContribution + DeathContribution + APR + ADRa + SurvivalRating;
 ```
 
 Inspired by Dave from [flashed.gg's article](https://flashed.gg/posts/reverse-engineering-hltv-rating/) about reverse engineering HLTV's 2.0 rating, I thought that with enough data I would be able to estimate the formula. If we know all the componenets that go into the formula, simply scraping data and then compiling it into a regression model would result in decent results/error.
@@ -28,7 +28,7 @@ Lets start with first getting the data that will go into our model. For my model
 
 Using basic python data scraping with BeautifulSoup, I scraped each table's stats and saved it to a csv file.
 
-```python
+```javascript
 response = requests.get(base_url + path)
 response.raise_for_status()  # Check if the request was successful
 soup = BeautifulSoup(response.content, "html.parser")
@@ -64,7 +64,7 @@ In order to clean the data, I simply dropped unimportant metrics like clutch rou
 
 The cleaned up csv looks like this:
 
-```python
+```javascript
 Player,R,ACS,K:D,KAST,ADR,KPR,APR,FKPR,FDPR,HS%,CL%,K,D,A,FK,FD,DPR,ADRa,SR
 Leo,1.24,209.7,1.38,0.82,135.0,0.75,0.41,0.04,0.02,21.0,19.0,956,693,522,57,30,0.541,30.438,0.459
 ...
@@ -74,8 +74,8 @@ Leo,1.24,209.7,1.38,0.82,135.0,0.75,0.41,0.04,0.02,21.0,19.0,956,693,522,57,30,0
 
 So what actual data goes into the formula? As mentioned before, the following metrics go into the linear formula:
 
-```python
-KillContribution + DeathContribution + APR + ADRa + SurvivalRating
+```javascript
+KillContribution + DeathContribution + APR + ADRa + SurvivalRating;
 ```
 
 Lets go through it piece by piece.
@@ -93,7 +93,7 @@ Lets go through it piece by piece.
 
 Now that we have cleaned our data and chose the metrics we will use in our formula, lets now predict the formula coefficients. Since the formula should be linear, lets use a linear regression model for our data. VLR.gg writes how the kill and death contributions are weighted more alongside a bell curve to normalize the data is applied but we will not worry about that for now.
 
-```python
+```javascript
 df = pd.read_csv("data/clean/champions2023.csv")
 
 featureKeys = ["KPR", "APR", "DPR", "ADRa", "SR", "KAST"]
@@ -113,7 +113,7 @@ predictions = model.predict(X_test)
 
 **Output:**
 
-```python
+```javascript
 Coefficients: [0.898060946867, 0.227872913948, -0.433940698092, 0.002524365390, 0.433940698092, 0.312874869548]
 Intercept: 0.17492523147187433
 
@@ -127,15 +127,21 @@ The R2 score doesnt look too bad! We'll that was after testing different metrics
 We get the final predicted formula to be:
 **VLR Rating ≈**
 
-```python
-0.898060946867*KPR + 0.227872913948*APR + -0.433940698092*DPR + 0.002524365390*ADRa + 0.433940698092*SR + 0.312874869548*KAST + 0.17492523147187433
+```javascript
+0.898060946867 * KPR +
+  0.227872913948 * APR +
+  -0.433940698092 * DPR +
+  0.00252436539 * ADRa +
+  0.433940698092 * SR +
+  0.312874869548 * KAST +
+  0.17492523147187433;
 ```
 
 # Testing
 
 The model was tested with statistics from [VALORANT Champions 2023](https://www.vlr.gg/event/stats/1657/valorant-champions-2023) and resulted in a minor standard deviation of error.
 
-```python
+```javascript
 Demon1       | Actual: 1.23, Predicted: 1.23, Error: 0.00
 Less         | Actual: 1.16, Predicted: 1.11, Error: 0.05
 aspas        | Actual: 1.15, Predicted: 1.13, Error: 0.03

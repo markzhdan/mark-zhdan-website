@@ -10,8 +10,6 @@ import Blog from "./pages/Blogs/Blog/Blog";
 
 import ProjectsPage from "./pages/Homepage/Projects/ProjectsPage";
 
-ReactGA.initialize("G-QDFZS9KT4D");
-
 const TrackPageView = () => {
   const location = useLocation();
 
