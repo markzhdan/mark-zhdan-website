@@ -6,7 +6,7 @@ import BackLink from "../../../components/BackLink";
 
 const ProjectsPage = () => {
   return (
-    <section className="ProjectsPage">
+    <section className="ProjectsPage Page">
       <ProjectsList />
 
       <BackLink />

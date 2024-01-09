@@ -1,6 +1,6 @@
 # Reverse Engineering the VLR Player Rating
 
-> January 8th, 2024 - Written by Mark Zhdan
+January 8th, 2024 - Written by Mark Zhdan
 
 ## TLDR
 
@@ -64,7 +64,7 @@ In order to clean the data, I simply dropped unimportant metrics like clutch rou
 
 The cleaned up csv looks like this:
 
-```
+```python
 Player,R,ACS,K:D,KAST,ADR,KPR,APR,FKPR,FDPR,HS%,CL%,K,D,A,FK,FD,DPR,ADRa,SR
 Leo,1.24,209.7,1.38,0.82,135.0,0.75,0.41,0.04,0.02,21.0,19.0,956,693,522,57,30,0.541,30.438,0.459
 ...
@@ -85,9 +85,9 @@ Lets go through it piece by piece.
   - _Note: that both of these are weight by a trading and economic modifier but since we don't have access to those stats, we will leave it like this._
 - **APR:** This is a straightforward the amount of assists per round (APR).
 - **Adjusted ADR (ADRa):** Adjusted ADR accounts for the damage that is already account in KPR. We try to remove the majority of damage incorporated in KPR and have a metric that is purely independent.
-  $$ ADRa = {(ADR _ Rounds) - (140 _ Kills) \over Rounds} $$
+  - ADRa = [(ADR * Rounds) - (140 * Kills)] / Rounds
 - **Survival Rating (SR):** This is calculated by checking if the player survived a round and calculates a percentage. We won't have economic information so we won't weight it.
-  $$ SR = {Rounds - Deaths \over Rounds} $$
+  - SR = (Rounds - Deaths) / Rounds
 
 # Analyzing Data
 
@@ -149,7 +149,7 @@ s0m          | Actual: 1.08, Predicted: 1.06, Error: 0.02
 ...
 ```
 
-Testing the function, we get a dececent amount of error and it never seems to be exactly correct. However, my goal was to get a rough estimate and I think I accomplished it! Without economic/loadout status and round-by-round analysis I think the model captures the general idea of the formula very well.
+Testing the function, we get a decent amount of error and it never seems to be exactly correct. However, my goal was to get a rough estimate and I think I accomplished it! Without economic/loadout status and round-by-round analysis I think the model captures the general idea of the formula very well.
 
 ## Conclusion
 

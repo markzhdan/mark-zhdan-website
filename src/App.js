@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import ReactGA from "react-ga";
 
 import Homepage from "./pages/Homepage/Homepage";
 import Blogs from "./pages/Blogs/Blogs";
@@ -9,10 +10,24 @@ import Blog from "./pages/Blogs/Blog/Blog";
 
 import ProjectsPage from "./pages/Homepage/Projects/ProjectsPage";
 
+ReactGA.initialize("G-QDFZS9KT4D");
+
+const TrackPageView = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.initialize("G-QDFZS9KT4D");
+    ReactGA.set({ page: location.pathname });
+    ReactGA.pageview(location.pathname);
+  }, [location]);
+
+  return null;
+};
+
 function App() {
+  const location = useLocation();
   const [alignTop, setAlignTop] = useState(false);
 
-  // Used to align the page center main element
   useEffect(() => {
     const checkHeight = () => {
       const pageElements = document.getElementsByClassName("Page");
@@ -22,6 +37,7 @@ function App() {
       }
     };
 
+    checkHeight();
     const timeoutId = setTimeout(checkHeight, 0);
 
     window.addEventListener("resize", checkHeight);
@@ -30,27 +46,26 @@ function App() {
       clearTimeout(timeoutId);
       window.removeEventListener("resize", checkHeight);
     };
-  }, []);
+  }, [location]);
 
   return (
-    <Router>
-      <main
-        className="App"
-        style={{ alignItems: alignTop ? "flex-start" : "center" }}
-      >
-        <Routes>
-          <Route exact path="/" element={<Homepage />} />
+    <main
+      className="App"
+      style={{ alignItems: alignTop ? "flex-start" : "center" }}
+    >
+      <TrackPageView />
+      <Routes>
+        <Route exact path="/" element={<Homepage />} />
 
-          <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
 
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blogs/daily-blogs" element={<DailyBlogs />} />
-          <Route path="/blogs/:blogId" element={<Blog />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/daily-blogs" element={<DailyBlogs />} />
+        <Route path="/blogs/:blogId" element={<Blog />} />
 
-          <Route path="*" element={<Homepage />} />
-        </Routes>
-      </main>
-    </Router>
+        <Route path="*" element={<Homepage />} />
+      </Routes>
+    </main>
   );
 }
 

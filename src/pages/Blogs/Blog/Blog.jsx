@@ -33,7 +33,7 @@ const Blog = () => {
   }, [blog]);
 
   return (
-    <main className={`Blog ${isDailyBlog ? "DailyBlog" : "SpecialBlog"}`}>
+    <main className={`Page Blog ${isDailyBlog ? "DailyBlog" : "SpecialBlog"}`}>
       <Markdown className="Markdown">{blog}</Markdown>
 
       <BackLink />

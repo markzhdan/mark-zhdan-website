@@ -1,11 +1,16 @@
 body {
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: white;
+  -webkit-overflow-scrolling: auto;
 }
 
 .App {
   height: 100vh;
   width: 100vw;
+  overflow: auto;
 
   display: flex;
   justify-content: center;
