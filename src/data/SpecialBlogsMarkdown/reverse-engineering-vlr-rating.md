@@ -122,7 +122,7 @@ RMSE: 0.020110865826540265
 MAE: 0.015882295992085477
 ```
 
-The R2 score doesnt look too bad! We'll that was after testing different metrics, calculations, random stats, and a lot of trial and error...
+The R2 score doesnt look too bad! Well that was after testing different metrics, calculations, random stats, and a lot of trial and error...
 
 We get the final predicted formula to be:
 **VLR Rating ≈**

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Routes, Route, useLocation } from "react-router-dom";
-import ReactGA from "react-ga";
 
 import Homepage from "./pages/Homepage/Homepage";
 import Blogs from "./pages/Blogs/Blogs";
@@ -10,21 +9,16 @@ import Blog from "./pages/Blogs/Blog/Blog";
 
 import ProjectsPage from "./pages/Homepage/Projects/ProjectsPage";
 
-const TrackPageView = () => {
-  const location = useLocation();
+import ReactGA from "react-ga";
+ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_ID);
 
-  useEffect(() => {
-    ReactGA.initialize("G-QDFZS9KT4D");
-    ReactGA.set({ page: location.pathname });
-    ReactGA.pageview(location.pathname);
-  }, [location]);
-
-  return null;
-};
-
-function App() {
+const App = () => {
   const location = useLocation();
   const [alignTop, setAlignTop] = useState(false);
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     const checkHeight = () => {
@@ -51,7 +45,6 @@ function App() {
       className="App"
       style={{ alignItems: alignTop ? "flex-start" : "center" }}
     >
-      <TrackPageView />
       <Routes>
         <Route exact path="/" element={<Homepage />} />
 
@@ -65,6 +58,6 @@ function App() {
       </Routes>
     </main>
   );
-}
+};
 
 export default App;
