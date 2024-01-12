@@ -2,7 +2,7 @@
 
 January 8th, 2024 - Written by Mark Zhdan
 
-## TLDR
+# TLDR
 
 ```javascript
 VLR Rating ≈ 0.898*KPR + 0.228*APR + -0.434*DPR + 0.0025*ADRa + 0.434*SR + 0.313*KAST + 0.175
@@ -10,7 +10,7 @@ VLR Rating ≈ 0.898*KPR + 0.228*APR + -0.434*DPR + 0.0025*ADRa + 0.434*SR + 0.3
 
 _Full coefficients below_
 
-## Introduction
+# Introduction
 
 VLR.gg introduced a new rating system for player stats around December of 2022. The formula to calculate the rating was not released but they explained the key metrics and components that go into the formula in an [article](https://www.vlr.gg/160667/vlr-gg-player-rating-explained). According to the post, the system takings into account kills, death, damage, assists, and surviving which goes into a linear formula similar to this:
 
@@ -22,7 +22,7 @@ Inspired by Dave from [flashed.gg's article](https://flashed.gg/posts/reverse-en
 
 Since VLR's rating calculates the rating based off round-by-round performance, loadout status, and round situations (1v5, 5v5, etc.), my goal is to make a very rough estimate of the formula using existing data found from the [VLR.gg stats page](https://www.vlr.gg/stats).
 
-## Gathering Data
+# Gathering Data
 
 Lets start with first getting the data that will go into our model. For my model, I used data from the [VALORANT Champions 2023 Finals](https://www.vlr.gg/stats/?event_group_id=all&event_id=1657&series_id=all&region=all&country=all&min_rounds=200&min_rating=1550&agent=all&map_id=all&timespan=all), the [VCT 2023 Season](https://www.vlr.gg/stats/?event_group_id=45&event_id=all&region=all&country=all&min_rounds=400&min_rating=1550&agent=all&map_id=all&timespan=all), [recent stats](https://www.vlr.gg/stats), and [all-time stats](https://www.vlr.gg/stats/?event_group_id=all&event_id=all&region=all&country=all&min_rounds=1000&min_rating=1550&agent=all&map_id=all&timespan=all).
 
@@ -58,7 +58,7 @@ else:
 
 I had to exclude the "Agents" column from the data before cleaning as if a player played less than 3+ agents, it would be just 3 or less agent icons leading to the data shifting within the table.
 
-## Cleaning Data
+# Cleaning Data
 
 In order to clean the data, I simply dropped unimportant metrics like clutch rounds, max kills, and player teams. I also removed % signs from numbers and divided all percentages by 100 in order to have a decimal value from 0-1. Finally, I calculated DPR, ADRa (ADR adjusted), and SR (survival rating) by the formulas below.
 
@@ -70,7 +70,7 @@ Leo,1.24,209.7,1.38,0.82,135.0,0.75,0.41,0.04,0.02,21.0,19.0,956,693,522,57,30,0
 ...
 ```
 
-## Choosing Metrics
+# Choosing Metrics
 
 So what actual data goes into the formula? As mentioned before, the following metrics go into the linear formula:
 
@@ -83,15 +83,15 @@ Lets go through it piece by piece.
 - **Kill Contribution:** This is simply the amount of kills that a player contributes in a match. Lets use kills per round (KPR).
 - **Death Contribution:** This is simply the amount of deaths that a player has in a match. Lets use deaths per round (DPR).
   - _Note: that both of these are weight by a trading and economic modifier but since we don't have access to those stats, we will leave it like this._
-- **APR:** This is a straightforward the amount of assists per round (APR).
+- **APR:** This is straightforward and simply the amount of assists per round (APR).
 - **Adjusted ADR (ADRa):** Adjusted ADR accounts for the damage that is already account in KPR. We try to remove the majority of damage incorporated in KPR and have a metric that is purely independent.
   - ADRa = [(ADR * Rounds) - (140 * Kills)] / Rounds
 - **Survival Rating (SR):** This is calculated by checking if the player survived a round and calculates a percentage. We won't have economic information so we won't weight it.
   - SR = (Rounds - Deaths) / Rounds
 
-## Analyzing Data
+# Analyzing Data
 
-Now that we have cleaned our data and chose the metrics we will use in our formula, lets now predict the formula coefficients. Since the formula should be linear, lets use a linear regression model for our data. VLR.gg writes how the kill and death contributions are weighted more alongside a bell curve to normalize the data is applied but we will not worry about that for now.
+Now that we have cleaned our data and chose the metrics we will use in our formula, lets now predict the formula coefficients. Since the formula should be linear, lets use a linear regression model for our data. VLR.gg writes how the kill and death contributions are weighted more alongside a bell curve to normalize the data is applied but lets not worry about that for now and see the result we get first.
 
 ```javascript
 df = pd.read_csv("data/clean/champions2023.csv")
@@ -137,7 +137,7 @@ We get the final predicted formula to be:
   0.17492523147187433;
 ```
 
-## Testing
+# Testing
 
 The model was tested with statistics from [VALORANT Champions 2023](https://www.vlr.gg/event/stats/1657/valorant-champions-2023) and resulted in a minor standard deviation of error.
 
@@ -157,13 +157,14 @@ s0m          | Actual: 1.08, Predicted: 1.06, Error: 0.02
 
 Testing the function, we get a decent amount of error and it never seems to be exactly correct. However, my goal was to get a rough estimate and I think I accomplished it! Without economic/loadout status and round-by-round analysis I think the model captures the general idea of the formula very well.
 
-## Conclusion
+# Conclusion
 
 Even through limitations in data and score calculations, I believe this project successfully reverse-engineered the VLR.gg player rating system to a high degree of accuracy. While VLR rating is calculated by a round-by-round basis and considers economic situation, I believe this offers a close enough representation of what to expect in the rating calculation.
 
 Overall, these insights for player assessment is important to analyze players' performances and I hope to use this with Post-Plant to predict individual VLR ratings.
 
-## Acknowledgements
+# Acknowledgements
 
 - VLR.gg for providing comprehensive statistics on player performance.
 - [flashed.gg](https://flashed.gg/posts/reverse-engineering-hltv-rating/) blog for providing a template for this analysis.
+- Check out the [GitHub repo](https://github.com/markzhdan/reverse-eng-vlr-rating) for the full code!
