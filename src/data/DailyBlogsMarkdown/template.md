@@ -14,7 +14,7 @@ Today,
 
 ## Cool Snippet
 
-```python
+```javascript
 
 ```
 
