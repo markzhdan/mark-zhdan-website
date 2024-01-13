@@ -12,7 +12,7 @@ _Full coefficients below_
 
 # Introduction
 
-VLR.gg introduced a new rating system for player stats around December of 2022. The formula to calculate the rating was not released but they explained the key metrics and components that go into the formula in an [article](https://www.vlr.gg/160667/vlr-gg-player-rating-explained). According to the post, the system takings into account kills, death, damage, assists, and surviving which goes into a linear formula similar to this:
+[VLR.gg](https://www.vlr.gg/) introduced a new rating system for player stats around December of 2022. The formula used to calculate the rating was not released but they explained the key metrics and components that go into it in an [article](https://www.vlr.gg/160667/vlr-gg-player-rating-explained). According to the post, the system takes into account kills, death, damage, assists, and survival rating which forms a linear formula similar to this:
 
 ```javascript
 KillContribution + DeathContribution + APR + ADRa + SurvivalRating;
