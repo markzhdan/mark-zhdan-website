@@ -4,7 +4,7 @@ import "./Portfolio.css";
 import PageLink from "../../../components/PageLink";
 import Link from "../../../components/Link";
 
-import resume from "../../../assets/Mark_Zhdan_Resum_2024.pdf";
+import resume from "../../../assets/Mark_Zhdan_Resume.pdf";
 
 const Portfolio = () => {
   return (
