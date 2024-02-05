@@ -8,18 +8,19 @@ import DailyBlogs from "./pages/Blogs/DailyBlogs/DailyBlogs";
 import Blog from "./pages/Blogs/Blog/Blog";
 
 import ProjectsPage from "./pages/Homepage/Projects/ProjectsPage";
-
-import ReactGA from "react-ga";
-ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_ID);
-console.log("React GA: ", process.env.REACT_APP_GOOGLE_ANALYTICS_ID);
+import Plausible from "plausible-tracker";
 
 const App = () => {
   const location = useLocation();
   const [alignTop, setAlignTop] = useState(false);
 
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
+    const plausible = Plausible({
+      domain: "markzhdan.com",
+    });
+
+    plausible.trackPageview();
+  }, [location]);
 
   useEffect(() => {
     const checkHeight = () => {
