@@ -2,7 +2,7 @@ import React from "react";
 import useAnalyticsEventTracker from "./useAnalyticsEventTracker";
 
 const Link = ({ name, link }) => {
-  const gaEventTracker = useAnalyticsEventTracker("Link clicked");
+  const trackEvent = useAnalyticsEventTracker();
 
   return (
     <a
@@ -11,7 +11,7 @@ const Link = ({ name, link }) => {
       rel="noreferrer"
       key={name}
       className="Link"
-      onClick={() => gaEventTracker(name)}
+      onClick={() => trackEvent("Link Clicked", { linkName: name })}
     >
       {name}
     </a>

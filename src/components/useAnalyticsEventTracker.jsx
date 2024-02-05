@@ -1,7 +1,12 @@
-const useAnalyticsEventTracker = (category = "Blog category") => {
-  const eventTracker = (action = "test action", label = "test label") => {
-    console.log("event");
+import Plausible from "plausible-tracker";
+
+const useAnalyticsEventTracker = () => {
+  const plausible = Plausible();
+
+  const eventTracker = (eventName, props = {}) => {
+    plausible.trackEvent(eventName, { props });
   };
+
   return eventTracker;
 };
 export default useAnalyticsEventTracker;
