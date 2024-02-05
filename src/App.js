@@ -11,6 +11,7 @@ import ProjectsPage from "./pages/Homepage/Projects/ProjectsPage";
 
 import ReactGA from "react-ga";
 ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_ID);
+console.log("React GA: ", process.env.REACT_APP_GOOGLE_ANALYTICS_ID);
 
 const App = () => {
   const location = useLocation();
