@@ -16,7 +16,8 @@ const Blog = () => {
   const [isDailyBlog, setIsDailyBlog] = useState(true);
 
   useEffect(() => {
-    let content = raw(`../../../data/DailyBlogsMarkdown/${blogId}.md`);
+    let content = raw(`../../../../_posts/dailyblogs/${blogId}.md`);
+    console.log("content: ", content);
 
     if (content) {
       setBlog(content);
