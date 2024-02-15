@@ -10,16 +10,6 @@ import notFound from "./middleware/notFound.mjs";
 import dailyBlogs from "./routes/dailyBlogs.mjs";
 import users from "./routes/user.mjs";
 
-// import AWS from "aws-sdk";
-
-// AWS.config.update({
-//   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-//   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-//   region: process.env.AWS_REGION,
-// });
-
-// const s3 = new AWS.S3();
-
 import path from "path";
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
@@ -38,11 +28,17 @@ app.use(cors({ origin: frontURL, credentials: true }));
 app.use(express.json());
 app.use(bodyParser.json());
 
+app.use(express.static(path.join(__dirname, "markzhdan/build")));
+
 app.use("/api/daily-blogs", dailyBlogs);
 app.use("/api/users", users);
 
 app.use(errorHandler);
 app.use(notFound);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "markzhdan/build/index.html"));
+});
 
 const backURL = process.env.BACK_BASE_URL
   ? process.env.BACK_BASE_URL
