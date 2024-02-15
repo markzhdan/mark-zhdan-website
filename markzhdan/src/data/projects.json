@@ -15,6 +15,20 @@
     ]
   },
   {
+    "name": "RocketPal",
+    "description": "Health based web app that placed first at UIC's Sparkhacks 2024 hackathon.",
+    "links": [
+      {
+        "linkTitle": "Devpost",
+        "link": "https://devpost.com/software/rocket-pal"
+      },
+      {
+        "linkTitle": "View GitHub",
+        "link": "https://github.com/markzhdan/RocketPal"
+      }
+    ]
+  },
+  {
     "name": "Buff163 API Wrapper",
     "description": "An unofficial Python API wrapper for Buff163, a CS skin marketplace.",
     "links": [

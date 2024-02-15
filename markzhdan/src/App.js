@@ -6,6 +6,7 @@ import Homepage from "./pages/Homepage/Homepage";
 import Blogs from "./pages/Blogs/Blogs";
 import DailyBlogs from "./pages/Blogs/DailyBlogs/DailyBlogs";
 import Blog from "./pages/Blogs/Blog/Blog";
+import AddBlog from "./pages/AddBlog/AddBlog";
 
 import ProjectsPage from "./pages/Homepage/Projects/ProjectsPage";
 import Plausible from "plausible-tracker";
@@ -52,8 +53,10 @@ const App = () => {
 
         <Route path="/projects" element={<ProjectsPage />} />
 
-        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/add-blog" element={<AddBlog />} />
+
         <Route path="/blogs/daily-blogs" element={<DailyBlogs />} />
+        <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:blogId" element={<Blog />} />
 
         <Route path="*" element={<Homepage />} />
