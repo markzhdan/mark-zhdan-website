@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./Blog.css";
 
@@ -7,6 +7,8 @@ import BackLink from "../../../components/BackLink";
 import Markdown from "react-markdown";
 import Prism from "prismjs";
 import "prism-themes/themes/prism-one-light.css";
+
+import Loading from "../../../components/Loading";
 
 import { fetchBackend } from "../../../api/api";
 
@@ -36,16 +38,15 @@ const Blog = () => {
   }, [blogId, navigate]);
 
   useEffect(() => {
-    const dateFormatRegex =
-      /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(19|20)\d{2}$/;
-    setIsDailyBlog(!dateFormatRegex.test(blogId));
+    const dateFormatRegex = /^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])-\d{4}$/;
+    setIsDailyBlog(dateFormatRegex.test(blogId));
 
     Prism.highlightAll();
   }, [blog]);
 
   return (
     <main className={`Page Blog ${isDailyBlog ? "DailyBlog" : "SpecialBlog"}`}>
-      <Markdown className="Markdown">{blog}</Markdown>
+      {blog ? <Markdown className="Markdown">{blog}</Markdown> : <Loading />}
 
       <BackLink />
     </main>
