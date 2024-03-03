@@ -14,6 +14,7 @@ import Plausible from "plausible-tracker";
 const App = () => {
   const location = useLocation();
   const [alignTop, setAlignTop] = useState(false);
+  const [blog, setBlog] = useState(null);
 
   useEffect(() => {
     const plausible = Plausible({
@@ -41,6 +42,10 @@ const App = () => {
       clearTimeout(timeoutId);
       window.removeEventListener("resize", checkHeight);
     };
+  }, [location, blog]);
+
+  useEffect(() => {
+    setBlog(null);
   }, [location]);
 
   return (
@@ -57,7 +62,10 @@ const App = () => {
 
         <Route path="/blogs/daily-blogs" element={<DailyBlogs />} />
         <Route path="/blogs" element={<Blogs />} />
-        <Route path="/blogs/:blogId" element={<Blog />} />
+        <Route
+          path="/blogs/:blogId"
+          element={<Blog blog={blog} setBlog={setBlog} />}
+        />
 
         <Route path="*" element={<Homepage />} />
       </Routes>

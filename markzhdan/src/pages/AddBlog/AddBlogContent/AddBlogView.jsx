@@ -36,7 +36,6 @@ const AddBlogView = () => {
         setBlogContent(response);
         setIsNewBlog(false);
       } catch (err) {
-        console.log("wow");
         setBlogContent(
           replaceFirstLineWithDate(
             BLOG_TEMPLATE,

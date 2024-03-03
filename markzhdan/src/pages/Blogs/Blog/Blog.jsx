@@ -12,10 +12,9 @@ import Loading from "../../../components/Loading";
 
 import { fetchBackend } from "../../../api/api";
 
-const Blog = () => {
+const Blog = ({ blog, setBlog }) => {
   const navigate = useNavigate();
   const { blogId } = useParams();
-  const [blog, setBlog] = useState(null);
   const [isDailyBlog, setIsDailyBlog] = useState(true);
 
   useEffect(() => {
