@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "../../../components/Link";
 
 const AboutMe = () => {
   return (
@@ -7,7 +8,9 @@ const AboutMe = () => {
 
       <p>
         I'm a full-stack web developer and a Computer Science student at the
-        University of Illinois Chicago. Looking for a summer 2024 internship.
+        University of Illinois Chicago. I made the VALORANT app{" "}
+        <Link name="Post-Plant" link="https://postplant.app/" /> to help users
+        improve.
       </p>
     </header>
   );
