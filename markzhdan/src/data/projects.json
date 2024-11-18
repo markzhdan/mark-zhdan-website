@@ -1,5 +1,10 @@
 [
   {
+    "name": "Curriculo",
+    "description": "An AI powered school app that automatically parses syllabi to organize deadlines, assignments, and courses.",
+    "links": [{ "linkTitle": "Visit Site", "link": "https://usecurriculo.com" }]
+  },
+  {
     "name": "Post-Plant",
     "description": "Analytical VALORANT web app created to help players improve and analyze their gameplay more effectively.",
     "links": [{ "linkTitle": "Visit Site", "link": "https://postplant.app" }]

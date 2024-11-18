@@ -7,10 +7,12 @@ const AboutMe = () => {
       <h1>Mark Zhdan</h1>
 
       <p>
-        I'm a full-stack web developer and a Computer Science student at the
-        University of Illinois Chicago. I made the VALORANT app{" "}
-        <Link name="Post-Plant" link="https://postplant.app/" /> to help users
-        improve.
+        I'm a full-stack web developer and CS student at the University of
+        Illinois Chicago. I made{" "}
+        <Link name="Curriculo" link="https://usecurriculo.com/" /> to help
+        students get organized. Visit{" "}
+        <Link name="Post-Plant" link="https://postplant.app/" /> to get better
+        at VALORANT.
       </p>
     </header>
   );
