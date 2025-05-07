@@ -7,8 +7,12 @@ const AboutMe = () => {
       <h1>Mark Zhdan</h1>
 
       <p>
-        I'm a full-stack web developer and CS student at the University of
-        Illinois Chicago. I made{" "}
+        I'm a software engineer at{" "}
+        <Link
+          name="Blinkfire Analytics"
+          link="https://www.blinkfire.com/landing"
+        />
+        . I also built{" "}
         <Link name="Curriculo" link="https://usecurriculo.com/" /> to help
         students get organized. Visit{" "}
         <Link name="Post-Plant" link="https://postplant.app/" /> to get better
